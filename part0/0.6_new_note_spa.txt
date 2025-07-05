@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>browser: https://studies.cs.helsinki.fi/exampleapp/spa.js
+
+    Note right of browser: The browser creates the new note internally in the frontend without refreshing or a get request
+
+    browser->>server: POST - {"content": "data", "date": "utc.now()"}
+
+    Note right of browser: Since the data were created before sending the post request, a get request is not required to refresh
